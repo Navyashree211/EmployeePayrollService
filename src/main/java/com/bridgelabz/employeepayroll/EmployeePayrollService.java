@@ -1,3 +1,10 @@
+/*
+ * UC2:-Write a program to demonstrate File Operations like
+ * check file Exists, Delete File And Check File Not Exit
+ * Create Empty File, List File , Directories as well as Files with Extension .
+ * 
+ * @author : Navaya Shree
+*/
 package com.bridgelabz.employeepayroll;
 
 import java.util.ArrayList;
@@ -9,7 +16,7 @@ public class EmployeePayrollService {
 	private List<EmployeePayroll> employeeList;
 
 	public EmployeePayrollService() {
-		this.employeeList = new ArrayList<EmployeePayroll>();
+		this.employeeList = new ArrayList<EmployeePayroll>(); // created arraylist
 	}
 
 	public EmployeePayrollService(List<EmployeePayroll> employeeList) {
@@ -38,5 +45,4 @@ public class EmployeePayrollService {
 		serviceObject.readEmployeeData();
 		serviceObject.writeEmployeeDate();
 	}
-
 }
