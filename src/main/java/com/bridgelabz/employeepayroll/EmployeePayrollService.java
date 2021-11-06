@@ -1,5 +1,5 @@
-/* UC-5 Ability for Employee Payroll service to print the Employee Payrolls.
- *      Ability for Employee Payroll Service to show number of Entries .
+/* UC-6 : Ability for Employee Payroll Service to read the Employee payroll
+ *  file so that some analysis can be performed .
  * 
  * @author : Navaya Shree
 */
@@ -25,16 +25,24 @@ public class EmployeePayrollService {
 		this.employeeList = employeeList;
 	}
 
-	public void readEmployeeData() {
-		System.out.println("Enter employee id:");
-		int employeeId = SC.nextInt();
-		System.out.println("Enter employee name:");
-		SC.nextLine();
-		String employeeName = SC.nextLine();
-		System.out.println("Enter employee salary:");
-		double employeeSalary = SC.nextDouble();
-		EmployeePayroll newEmployee = new EmployeePayroll(employeeId, employeeName, employeeSalary);
-		employeeList.add(newEmployee);
+	public int sizeOfEmployeeList() {
+		return this.employeeList.size();
+	}
+
+	public void readEmployeeData(IOService ioType) {
+		if (ioType.equals(IOService.CONSOLE_IO)) {
+			System.out.println("Enter employee id:");
+			int employeeId = SC.nextInt();
+			System.out.println("Enter employee name:");
+			SC.nextLine();
+			String employeeName = SC.nextLine();
+			System.out.println("Enter employee salary:");
+			double employeeSalary = SC.nextDouble();
+			EmployeePayroll newEmployee = new EmployeePayroll(employeeId, employeeName, employeeSalary);
+			employeeList.add(newEmployee);
+		} else if (ioType.equals(IOService.FILE_IO)) {
+			this.employeeList = new EmployeePayrollFileIOService().readData();
+		}
 	}
 
 	public void writeEmployeeDdate(IOService ioType) {
@@ -55,5 +63,4 @@ public class EmployeePayrollService {
 	public void printEmployeePayrollData() {
 		new EmployeePayrollFileIOService().printEmployeePayrolls();
 	}
-
 }
