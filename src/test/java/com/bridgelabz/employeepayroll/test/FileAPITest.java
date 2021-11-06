@@ -13,11 +13,11 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.stream.IntStream;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import com.bridgelabz.employeepayroll.FileUtils;
 
-import junit.framework.Assert;
 
 public class FileAPITest {
 	public static final String HOME = System.getProperty("user.home");

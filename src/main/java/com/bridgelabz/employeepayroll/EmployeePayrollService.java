@@ -1,7 +1,4 @@
-/*
- * UC2:-Write a program to demonstrate File Operations like
- * check file Exists, Delete File And Check File Not Exit
- * Create Empty File, List File , Directories as well as Files with Extension .
+/* UC-4 Create an Employee Payroll service to store Employee payroll into a file.
  * 
  * @author : Navaya Shree
 */
@@ -12,11 +9,15 @@ import java.util.List;
 import java.util.Scanner;
 
 public class EmployeePayrollService {
+	public enum IOService {
+		CONSOLE_IO, FILE_IO, DB_IO, REST_IO
+	}
+
 	public static final Scanner SC = new Scanner(System.in);
 	private List<EmployeePayroll> employeeList;
 
 	public EmployeePayrollService() {
-		this.employeeList = new ArrayList<EmployeePayroll>(); // created arraylist
+		this.employeeList = new ArrayList<EmployeePayroll>();
 	}
 
 	public EmployeePayrollService(List<EmployeePayroll> employeeList) {
@@ -35,14 +36,18 @@ public class EmployeePayrollService {
 		employeeList.add(newEmployee);
 	}
 
-	public void writeEmployeeDate() {
-		for (EmployeePayroll o : employeeList)
-			System.out.println(o.toString());
+	public void writeEmployeeDdate(IOService ioType) {
+		if (ioType.equals(IOService.CONSOLE_IO)) {
+			for (EmployeePayroll o : employeeList)
+				System.out.println(o.toString());
+		} else if (ioType.equals(IOService.FILE_IO)) {
+			new EmployeePayrollFileIOService().writeData(employeeList);
+		}
 	}
 
-	public static void main(String[] args) {
-		EmployeePayrollService serviceObject = new EmployeePayrollService();
-		serviceObject.readEmployeeData();
-		serviceObject.writeEmployeeDate();
+	public long countEnteries(IOService ioType) {
+		if (ioType.equals(IOService.FILE_IO))
+			return new EmployeePayrollFileIOService().countEntries();
+		return 0;
 	}
 }
