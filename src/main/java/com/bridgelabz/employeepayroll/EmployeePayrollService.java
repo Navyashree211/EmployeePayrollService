@@ -1,4 +1,5 @@
-/* UC-4 Create an Employee Payroll service to store Employee payroll into a file.
+/* UC-5 Ability for Employee Payroll service to print the Employee Payrolls.
+ *      Ability for Employee Payroll Service to show number of Entries .
  * 
  * @author : Navaya Shree
 */
@@ -50,4 +51,9 @@ public class EmployeePayrollService {
 			return new EmployeePayrollFileIOService().countEntries();
 		return 0;
 	}
+
+	public void printEmployeePayrollData() {
+		new EmployeePayrollFileIOService().printEmployeePayrolls();
+	}
+
 }

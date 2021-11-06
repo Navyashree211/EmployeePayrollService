@@ -1,3 +1,3 @@
-EmployeePayroll [employeeId=1, employeeName=Chaitra NS, salary=800000.0]
-EmployeePayroll [employeeId=2, employeeName=Tushar Akhade, salary=850000.0]
-EmployeePayroll [employeeId=3, employeeName=Geeta Biradar, salary=900000.0]
+EmployeePayroll [employeeId=1, employeeName=Navaya Shree, salary=8800000.0]
+EmployeePayroll [employeeId=2, employeeName=Anokhi Sha, salary=850000.0]
+EmployeePayroll [employeeId=3, employeeName=Aradhiya, salary=900000.0]
